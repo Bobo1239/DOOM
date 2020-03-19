@@ -1,0 +1,7 @@
+git clone https://github.com/dgeng/iwad.git
+mkdir linuxdoom-1.10/linux
+cd linuxdoom-1.10/linux
+make -C ..
+7z x ../../iwad/doom.7z
+Xephyr :1 -ac -screen 800x600x8 &
+env DISPLAY=:1 ./linuxxdoom -2

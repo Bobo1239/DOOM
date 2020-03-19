@@ -46,7 +46,7 @@ int XShmGetEventBase( Display* dpy ); // problems with g++?
 #include <sys/socket.h>
 
 #include <netinet/in.h>
-#include <errnos.h>
+#include <errno.h>
 #include <signal.h>
 
 #include "doomstat.h"
@@ -793,6 +793,7 @@ void I_InitGraphics(void)
     // create the colormap
     X_cmap = XCreateColormap(X_display, RootWindow(X_display,
 						   X_screen), X_visual, AllocAll);
+    XInstallColormap( X_display, X_cmap );
 
     // setup attributes for main window
     attribmask = CWEventMask | CWColormap | CWBorderPixel;
